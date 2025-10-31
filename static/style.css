@@ -1,0 +1,189 @@
+/* ---------- Global ---------- */
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ---------- Containers ---------- */
+.container {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Horizontal main block modifier (keeps mobile stacked) */
+.container.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 900px;
+}
+
+/* When horizontal, make direct children share space */
+.container.horizontal > * {
+  flex: 1 1 0;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  background: #00c6ff;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  margin: 8px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid #fff;
+}
+
+/* ---------- Inputs ---------- */
+#guess-input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.message {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  min-height: 24px;
+}
+
+/* ---------- Table ---------- */
+.table-container {
+  overflow-x: auto;
+}
+
+.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.leaderboard th, .leaderboard td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.leaderboard th {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+}
+
+.leaderboard tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Footer (minimal) ---------- */
+footer {
+  text-align: center;
+  padding: 6px 8px;    /* smaller vertical padding */
+  font-size: 0.75rem;  /* reduced font size to keep it minimal */
+  color: rgba(255,255,255,0.7);
+  background: transparent; /* avoid heavy background that competes with UI */
+  width: 100%;
+  margin-top: 8px;
+}
+
+footer strong {
+  color: #00ffe0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .container {
+    padding: 25px 20px;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  #guess-input {
+    width: 100%;
+  }
+
+  .leaderboard th, .leaderboard td {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.68rem;
+    padding: 4px 6px;
+  }
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

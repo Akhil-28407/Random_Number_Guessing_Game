@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+    <h1>🎯 Number Guessing Game</h1>
+    <form method="POST">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <label>Difficulty:</label>
+      <select name="difficulty">
+        <option value="easy">Easy (1–50)</option>
+        <option value="medium" selected>Medium (1–100)</option>
+        <option value="hard">Hard (1–500)</option>
+      </select>
+      <button type="submit">Start Game</button>
+    </form>
+    </div>
+  </div>
+
+  <footer style="text-align:center; margin-top:2em; color:#888; font-size:0.9em;">
+    © 2025 Akhil-28407 — Designed by Akhil-28407
+  </footer>
+</body>
+</html>
+

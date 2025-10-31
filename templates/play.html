@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Play Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='game.js') }}" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+    <h1>{{ emoji or '🔢' }} Guess the Number!</h1>
+
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+    {% if hint %}
+      <p class="hint">{{ hint }}</p>
+    {% endif %}
+
+    {% if not win %}
+      <form method="POST">
+        <input type="number" name="guess" placeholder="Enter a number (1-{{ max_num }})" required>
+        <button type="submit" class="guess-btn">Guess</button>
+      </form>
+
+      <div class="progress-container">
+        <div class="progress-bar" data-progress="{{ attempts }}"></div>
+      </div>
+
+      <p>Attempts: {{ attempts }}</p>
+    {% else %}
+      <p class="score">🏆 Your Score: {{ score }}</p>
+      <button class="play-again-btn">Play Again</button>
+      <a href="{{ url_for('leaderboard_page') }}">
+        <button class="leaderboard-btn">View Leaderboard</button>
+      </a>
+    {% endif %}
+    </div>
+  </div>
+  
+  <footer style="text-align:center; margin-top:2em; color:#888; font-size:0.9em;">
+    © 2025 Akhil-28407 — Designed by Akhil-28407
+  </footer>
+</body>
+</html>
